@@ -1,3 +1,6 @@
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
 CREATE TABLE IF NOT EXISTS CUSTOMERS(
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
@@ -62,3 +65,5 @@ SELECT * FROM orders LIMIT 10;
 -- Количество записей
 SELECT count(*) FROM customers;
 SELECT count(*) FROM orders;
+
+SELECT version();

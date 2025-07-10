@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 
 @Repository
 public class CustomerRepository {
-
     private final NamedParameterJdbcTemplate jdbcTemplate;
     private final String findProductByCustomerNameQuery;
 
