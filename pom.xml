@@ -86,6 +86,10 @@
             <version>2.2.224</version> <!-- Актуальная версия -->
             <scope>test</scope> <!-- Только для тестов -->
         </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
