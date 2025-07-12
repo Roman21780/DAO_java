@@ -1,7 +1,8 @@
 package com.example.dao.controller;
 
 import com.example.dao.repository.CustomerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,14 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/products")
+@RequiredArgsConstructor
 public class ProductController {
 
     private final CustomerRepository customerRepository;
-
-    @Autowired
-    public ProductController(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
 
     @GetMapping("/")
     public String home() {
@@ -26,7 +23,8 @@ public class ProductController {
     }
 
     @GetMapping("/fetch-product")
-    public List<String> fetchProduct(@RequestParam String name) {
-        return customerRepository.getProductName(name);
+    public ResponseEntity<List<String>> fetchProduct(@RequestParam String name) {
+        List<String> products = customerRepository.getProductName(name);
+        return ResponseEntity.ok(products);
     }
 }
